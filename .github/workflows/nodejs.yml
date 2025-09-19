@@ -11,25 +11,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
 
-      - name: Use Node.js 20.x
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20.x'
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
 
-      - name: Install dependencies
-        run: npm install
+    - name: Install dependencies
+      run: npm install
 
-      - name: Start API Rest
-        run: npm run start-rest &
-      
-      - name: Wait for API to be ready
-        run: npx wait-on http://localhost:3000/health
+    - name: Subir a API Rest 
+      run: npm run start-rest &
 
-      - name: Run external REST API tests
-        run: npm run test-rest-external
+    - name: Esperar as APIs estarem Funcionando
+      run: sleep 8
+
+
+    - name: Rodar os testes External de API Rest via HTTP
+      run: npm run test-rest-external
+
 
 
 
