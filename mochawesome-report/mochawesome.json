@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-19T18:08:32.032Z",
-    "end": "2025-09-19T18:08:32.161Z",
-    "duration": 129,
+    "start": "2025-09-19T18:23:22.807Z",
+    "end": "2025-09-19T18:23:22.897Z",
+    "duration": 90,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "220bc4d3-85d1-4b24-b1e5-6d3eae6e1eb9",
+      "uuid": "9401e7c3-8045-46fd-a63d-b6c35a99d744",
       "title": "",
       "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
       "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "52fb72b5-3c7b-4b5a-a680-838ecb860019",
+          "uuid": "0487c2c4-4a56-4d0b-8710-6ce354f286cf",
           "title": "checkout external",
           "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
           "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "ed927e7a-8fe0-4e48-84f3-504a2fdd873e",
+              "uuid": "71770e6e-0e48-4116-9ae4-b292b0e8d4ef",
               "title": "POST /checkout",
               "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
               "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -54,8 +54,8 @@
                   "context": null,
                   "code": "const respostaLogin = await request('http://localhost:3000')\n    .post('/api/users/login')\n    .send({\n        email: 'alice@email.com',\n        password: '123456'\n    });\ntoken = respostaLogin.body.token;",
                   "err": {},
-                  "uuid": "71d56af2-4550-4d2f-819e-bda9e3e6e4ec",
-                  "parentUUID": "ed927e7a-8fe0-4e48-84f3-504a2fdd873e",
+                  "uuid": "73f5109c-f1bb-4cf8-aeb9-17bc440aa35f",
+                  "parentUUID": "71770e6e-0e48-4116-9ae4-b292b0e8d4ef",
                   "isHook": true,
                   "skipped": false
                 }
@@ -66,7 +66,7 @@
                   "title": "Quando realizo um checkout eu recebo um 200",
                   "fullTitle": "checkout external POST /checkout Quando realizo um checkout eu recebo um 200",
                   "timedOut": false,
-                  "duration": 15,
+                  "duration": 12,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "const respostaCheckout = await request('http://localhost:3000')\n    .post('/api/checkout')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        items: [\n            {\n                productId: 1,\n                quantity: 5\n            }\n        ],\n        freight: 10,\n        paymentMethod: \"boleto\",\n        cardData: {\n            number: \"100745-5\",\n            name: \"jonatas sousa\",\n            expiry: \"12/27\",\n            cvv: \"1234\"\n        }\n    });\n    //console.log(resposta.body);\n\n        const respostaEsperada = require('../fixture/respostas/checkoutComSucesso.json');\n        expect(respostaCheckout.status).to.equal(200);\n        expect(respostaCheckout.body).to.deep.equal(respostaEsperada);",
                   "err": {},
-                  "uuid": "3dfdc3c3-8483-4539-bf78-cd73dd977d76",
-                  "parentUUID": "ed927e7a-8fe0-4e48-84f3-504a2fdd873e",
+                  "uuid": "436dd648-5244-458c-bd17-fadc61d32a43",
+                  "parentUUID": "71770e6e-0e48-4116-9ae4-b292b0e8d4ef",
                   "isHook": false,
                   "skipped": false
                 },
@@ -93,21 +93,21 @@
                   "context": null,
                   "code": "const respostaCheckout = await request('http://localhost:3000')\n    .post('/api/checkout')\n    .send({\n        items: [\n            {\n                productId: 1,\n                quantity: 5\n            }\n        ],\n        freight: 10,\n        paymentMethod: \"boleto\",\n        cardData: {\n            number: \"100745-5\",\n            name: \"jonatas sousa\",\n            expiry: \"12/27\",\n            cvv: \"1234\"\n        }\n    });\n    //console.log(resposta.body);\n\n        expect(respostaCheckout.status).to.equal(401);\n        expect(respostaCheckout.body.error).to.deep.equal('Token inválido');",
                   "err": {},
-                  "uuid": "30698afd-411e-4fa8-ae17-1cf9da270ba7",
-                  "parentUUID": "ed927e7a-8fe0-4e48-84f3-504a2fdd873e",
+                  "uuid": "da0923b5-fc7a-4e8a-bb3a-fb288ee69a2f",
+                  "parentUUID": "71770e6e-0e48-4116-9ae4-b292b0e8d4ef",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "3dfdc3c3-8483-4539-bf78-cd73dd977d76",
-                "30698afd-411e-4fa8-ae17-1cf9da270ba7"
+                "436dd648-5244-458c-bd17-fadc61d32a43",
+                "da0923b5-fc7a-4e8a-bb3a-fb288ee69a2f"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 20,
+              "duration": 17,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000
