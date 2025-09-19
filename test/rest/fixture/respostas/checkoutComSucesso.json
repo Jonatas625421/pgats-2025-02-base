@@ -1,0 +1,13 @@
+{
+  "valorFinal": 510,
+  "userId": 1,
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 5
+    }
+  ],
+  "freight": 10,
+  "paymentMethod": "boleto",
+  "total": 510
+}
