@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-09-19T19:11:45.103Z",
-    "end": "2025-09-19T19:11:45.258Z",
-    "duration": 155,
+    "start": "2025-09-19T19:53:54.045Z",
+    "end": "2025-09-19T19:53:54.161Z",
+    "duration": 116,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "07220149-051f-402f-9f3f-8061a5b5d131",
+      "uuid": "01428d1b-989c-4ce0-90cc-6ff4b6148edd",
       "title": "",
       "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
       "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "8be9b99b-7a60-42a1-b05b-d7f2a72e27b3",
+          "uuid": "1b71ba93-0304-43a7-9fb1-a376fcb892f0",
           "title": "checkout external",
           "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
           "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -36,7 +36,7 @@
           "tests": [],
           "suites": [
             {
-              "uuid": "6433b3af-c624-4165-9813-5ae3bda7852a",
+              "uuid": "674c4c17-26a0-4b1f-a2f3-cdd8a70d33ff",
               "title": "POST /checkout",
               "fullFile": "C:\\Users\\win\\Documents\\Projetos-Api-Pgats\\pgats-2025-02-base\\test\\rest\\external\\checkoutExternal.test.js",
               "file": "\\test\\rest\\external\\checkoutExternal.test.js",
@@ -54,8 +54,8 @@
                   "context": null,
                   "code": "const respostaLogin = await request('http://localhost:3000')\n    .post('/api/users/login')\n    .send({\n        email: 'alice@email.com',\n        password: '123456'\n    });\ntoken = respostaLogin.body.token;",
                   "err": {},
-                  "uuid": "8944a84e-8c38-428f-9775-86385877964c",
-                  "parentUUID": "6433b3af-c624-4165-9813-5ae3bda7852a",
+                  "uuid": "b29f126f-f479-446d-8cc6-2ca0afe9ff87",
+                  "parentUUID": "674c4c17-26a0-4b1f-a2f3-cdd8a70d33ff",
                   "isHook": true,
                   "skipped": false
                 }
@@ -66,7 +66,7 @@
                   "title": "Quando realizo um checkout eu recebo um 200",
                   "fullTitle": "checkout external POST /checkout Quando realizo um checkout eu recebo um 200",
                   "timedOut": false,
-                  "duration": 18,
+                  "duration": 14,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -75,8 +75,8 @@
                   "context": null,
                   "code": "const respostaCheckout = await request('http://localhost:3000')\n    .post('/api/checkout')\n    .set('Authorization', `Bearer ${token}`)\n    .send({\n        items: [\n            {\n                productId: 1,\n                quantity: 5\n            }\n        ],\n        freight: 10,\n        paymentMethod: \"boleto\",\n        cardData: {\n            number: \"100745-5\",\n            name: \"jonatas sousa\",\n            expiry: \"12/27\",\n            cvv: \"1234\"\n        }\n    });\n    //console.log(resposta.body);\n\n        const respostaEsperada = require('../fixture/respostas/checkoutComSucesso.json');\n        expect(respostaCheckout.status).to.equal(200);\n        expect(respostaCheckout.body).to.deep.equal(respostaEsperada);",
                   "err": {},
-                  "uuid": "04036af3-1485-4c7d-9ffa-a4c9a8c20bd6",
-                  "parentUUID": "6433b3af-c624-4165-9813-5ae3bda7852a",
+                  "uuid": "71e0e360-78f9-4993-86ee-195620b99f8b",
+                  "parentUUID": "674c4c17-26a0-4b1f-a2f3-cdd8a70d33ff",
                   "isHook": false,
                   "skipped": false
                 },
@@ -84,7 +84,7 @@
                   "title": "Quando realizo um checkout sem me autenticar eu recebo um 401",
                   "fullTitle": "checkout external POST /checkout Quando realizo um checkout sem me autenticar eu recebo um 401",
                   "timedOut": false,
-                  "duration": 9,
+                  "duration": 6,
                   "state": "passed",
                   "speed": "fast",
                   "pass": true,
@@ -93,21 +93,21 @@
                   "context": null,
                   "code": "const respostaCheckout = await request('http://localhost:3000')\n    .post('/api/checkout')\n    .send({\n        items: [\n            {\n                productId: 1,\n                quantity: 5\n            }\n        ],\n        freight: 10,\n        paymentMethod: \"boleto\",\n        cardData: {\n            number: \"100745-5\",\n            name: \"jonatas sousa\",\n            expiry: \"12/27\",\n            cvv: \"1234\"\n        }\n    });\n    //console.log(resposta.body);\n\n        expect(respostaCheckout.status).to.equal(401);\n        expect(respostaCheckout.body.error).to.deep.equal('Token inválido');",
                   "err": {},
-                  "uuid": "8f5418c2-b8c8-48a2-a2d9-d90043a38e37",
-                  "parentUUID": "6433b3af-c624-4165-9813-5ae3bda7852a",
+                  "uuid": "3a7fa2dd-0c38-4379-900a-61bdb051a36e",
+                  "parentUUID": "674c4c17-26a0-4b1f-a2f3-cdd8a70d33ff",
                   "isHook": false,
                   "skipped": false
                 }
               ],
               "suites": [],
               "passes": [
-                "04036af3-1485-4c7d-9ffa-a4c9a8c20bd6",
-                "8f5418c2-b8c8-48a2-a2d9-d90043a38e37"
+                "71e0e360-78f9-4993-86ee-195620b99f8b",
+                "3a7fa2dd-0c38-4379-900a-61bdb051a36e"
               ],
               "failures": [],
               "pending": [],
               "skipped": [],
-              "duration": 27,
+              "duration": 20,
               "root": false,
               "rootEmpty": false,
               "_timeout": 10000

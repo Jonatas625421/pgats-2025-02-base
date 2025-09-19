@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha 'test/**/*.test.js' --timeout 10000 --reporter mochawesome",
-    "start-rest": "node src/server.js",
+    "start-rest": "node rest/server.js",
     "test-rest-external": "mocha test/rest/external/**/*.test.js --timeout 10000 --reporter mochawesome"
   },
   "repository": {
