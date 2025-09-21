@@ -7,6 +7,9 @@ const checkoutRoutes = require('./routes/checkoutRoutes');
 const app = express();
 app.use(express.json());
 
+// Middlewares
+// express.json() already parses JSON bodies
+
 app.use('/api/users', userRoutes);
 app.use('/api/checkout', checkoutRoutes);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

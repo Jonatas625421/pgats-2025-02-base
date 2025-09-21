@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha 'test/**/*.test.js' --timeout 10000 --reporter mochawesome",
     "start-rest": "node rest/server.js",
-    "test-rest-external": "mocha test/rest/external/**/*.test.js --timeout 10000 --reporter mochawesome"
+    "test-rest-external": "mocha test/rest/external/**/*.test.js --timeout 10000 --reporter mochawesome",
+    "test-rest-controller": "mocha test/rest/controller/**/*.test.js --timeout 10000 --reporter mochawesome"
   },
   "repository": {
     "type": "git",
@@ -25,6 +26,7 @@
     "express": "^4.21.2",
     "graphql": "^16.11.0",
     "jsonwebtoken": "^9.0.2",
+    "sinon": "^21.0.0",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
